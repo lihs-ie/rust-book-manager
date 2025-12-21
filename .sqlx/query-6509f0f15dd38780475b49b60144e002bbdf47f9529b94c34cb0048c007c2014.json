@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT\n                book_id,\n                title,\n                author,\n                isbn,\n                description\n            FROM books\n            WHERE book_id = $1\n          ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "book_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "author",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "isbn",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "description",
+        "type_info": "Varchar"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "6509f0f15dd38780475b49b60144e002bbdf47f9529b94c34cb0048c007c2014"
+}
