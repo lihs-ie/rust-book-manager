@@ -1,4 +1,5 @@
 use async_trait::async_trait;
+use mockall::automock;
 use shared::error::AppResult;
 
 use crate::model::{
@@ -11,6 +12,7 @@ use crate::model::{
 };
 
 #[async_trait]
+#[automock]
 pub trait BookRepository: Send + Sync {
     async fn create(&self, event: CreateBook, user_id: UserId) -> AppResult<()>;
     async fn find_all(&self, options: BookListOptions) -> AppResult<PaginatedList<Book>>;

@@ -112,7 +112,7 @@ impl From<BookListQuery> for BookListOptions {
     }
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct BookCheckoutResponse {
     pub id: CheckoutId,
@@ -136,7 +136,7 @@ impl From<Checkout> for BookCheckoutResponse {
 }
 
 // 実装済みの BookResponse 型にフィールド owner を追加
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct BookResponse {
     pub id: BookId,
@@ -173,7 +173,7 @@ impl From<Book> for BookResponse {
 // api レイヤーでのページネーション表現用の型
 // 型の内部で持つフィールドは `PaginatedList<Book>` と同じであるが、
 // serde::Serialize を実装しているので JSON に変換してクライアントに返せる
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct PaginatedBookResponse {
     pub total: i64,
